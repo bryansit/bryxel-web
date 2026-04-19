@@ -875,7 +875,17 @@ filter: brightness(1.1) contrast(1.1);
     text-align: center;
     padding: 2rem 1.8rem; /* ← agrega esta línea */
   }
+  @media (max-width: 900px) and (orientation: landscape) {
+  .hero-container {
+    padding: 2rem 3rem;
+  }
+}
 
+@media (min-width: 600px) and (max-width: 1024px) {
+  .hero-container {
+    padding: 2rem 3.5rem;
+  }
+}
   .hero-visual {
     display: flex;
     transform: scale(0.8);
@@ -1039,3 +1049,37 @@ filter: brightness(1.1) contrast(1.1);
   line-height: 1.4;
 }
 
+/* ── FIX HERO PADDING TODOS LOS DISPOSITIVOS ── */
+.hero-container {
+  padding: 2rem 2.5rem !important;
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    padding: 2rem 2rem !important;
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    padding: 2rem 1.5rem !important;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 900px) {
+  .hero-container {
+    padding: 2rem 3rem !important;
+  }
+}
+
+/* ── PHONE MOCKUP EN CELULAR ── */
+@media (max-width: 900px) {
+  .mockup-phone {
+    display: none !important;
+  }
+  .hero-visual {
+    display: none !important;
+  }
+}
