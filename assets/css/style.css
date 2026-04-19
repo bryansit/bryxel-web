@@ -893,31 +893,42 @@ body {
     display: flex;
     transform: scale(0.75);
   }
-  .mockup-phone { display: none; }
+  .mockup-phone { display: block; }
 }
 
 /* MÓVIL (< 768px): ocultar mockup */
+/* MÓVIL (< 767px) */
 @media (max-width: 767px) {
   .hero-container {
     grid-template-columns: 1fr;
     padding: 2rem 1.8rem;
     text-align: center;
   }
-  .hero-visual { display: none; }
-  .mockup-phone { display: none; }
-  .hero-ctas { flex-direction: column; width: 100%; }
+  .hero-visual {
+    display: flex;
+    transform: scale(0.65);
+    transform-origin: center top;
+    margin-bottom: -5rem;
+  }
+.mockup-phone {
+    display: block;
+    right: -10px;
+    bottom: -10px;
+  }  .hero-ctas { flex-direction: column; width: 100%; }
   .btn-whatsapp,
   .btn-portafolio { width: 100%; justify-content: center; }
 }
 
-/* MÓVIL PEQUEÑO (< 480px) */
 @media (max-width: 480px) {
   .hero-container { padding: 2rem 1.2rem; }
+  .hero-visual {
+    transform: scale(0.55);
+    margin-bottom: -7rem;
+  }
   .pricing-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
   .price-card { text-align: center; }
   .portfolio-grid { grid-template-columns: 1fr; }
 }
-
 /* CELULAR HORIZONTAL */
 @media (orientation: landscape) and (max-width: 767px) {
   .hero-container {
