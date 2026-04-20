@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bryxel Technology – Desarrollamos tu página web profesional</title>
-  <link rel="icon" href="assets/img/logo (2).png" type="image/png"/>
+  <link rel="icon" href=".assets/img/logo (2).png" type="image/png"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <link rel="stylesheet" href="assets/css/animations.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -333,23 +333,38 @@ Aplicación de escaneo de productos que permite identificar artículos de H&M y 
   <h2 class="sec-title">Invierte en tu presencia digital</h2>
   <p class="sec-desc">Sin letras pequeñas, sin sorpresas. Elige el plan ideal para tu negocio.</p>
 
+  <!-- 🔥 CYBER WOW COUNTDOWN -->
+  <div class="cyber-countdown" id="countdown">
+    <p>🔥 CYBER WOW: Oferta limitada hasta <span id="endDate">viernes 25/04</span></p>
+    <div class="countdown-timer">
+      <span id="days">05</span>d <span id="hours">14</span>h 
+      <span id="minutes">23</span>m <span id="seconds">45</span>s
+    </div>
+  </div>
+
   <div class="pricing-grid">
     <div class="price-card">
       <div class="price-name">Básico</div>
-      <div class="price-amount"><sup>S/</sup>300</div>
+      <div class="price-stacked">
+        <span class="price-old">~<sup>S/</sup>300~</span>
+        <div class="price-amount cyber"><sup>S/</sup>250</div>
+      </div>
       <div class="price-period">pago único</div>
       <ul class="price-features">
         <li>1 página web</li>
         <li>Diseño profesional</li>
         <li>Entrega: 2 a 5 días según proyecto</li>
       </ul>
-      <button class="btn-plan" onclick="cotizar('Básico', 300)">Elegir plan</button>
+      <button class="btn-plan cyber" onclick="cotizar('Básico', 250)">Elegir plan 🔥</button>
     </div>
 
     <div class="price-card featured">
       <div class="popular-badge">🔥 Más vendido</div>
       <div class="price-name">Profesional</div>
-      <div class="price-amount"><sup>S/</sup>600</div>
+      <div class="price-stacked">
+        <span class="price-old">~<sup>S/</sup>600~</span>
+        <div class="price-amount cyber"><sup>S/</sup>500</div>
+      </div>
       <div class="price-period">pago único</div>
       <ul class="price-features">
         <li>Web completa (5 secciones)</li>
@@ -358,32 +373,34 @@ Aplicación de escaneo de productos que permite identificar artículos de H&M y 
         <li>Soporte 1 mes</li>
         <li>Entrega: 4 a 7 días según funcionalidades</li>
       </ul>
-      <button class="btn-plan featured" onclick="cotizar('Profesional', 600)">Elegir plan</button>
+      <button class="btn-plan featured cyber" onclick="cotizar('Profesional', 500)">Elegir plan 🔥</button>
     </div>
 
     <div class="price-card">
       <div class="price-name">Premium</div>
-      <div class="price-amount"><sup>S/</sup>1000</div>
+      <div class="price-stacked">
+        <span class="price-old">~<sup>S/</sup>1000~</span>
+        <div class="price-amount cyber"><sup>S/</sup>850</div>
+      </div>
       <div class="price-period">pago único</div>
       <ul class="price-features">
         <li>Tienda online (hasta 20 prod.)</li>
         <li>Pasarela de pagos</li>
         <li>Soporte 3 meses</li>
-        <li>Entrega: 7 a 11 días según del proyecto </li>
+        <li>Entrega: 7 a 11 días según del proyecto</li>
       </ul>
-      <button class="btn-plan" onclick="cotizar('Premium', 1000)">Elegir plan</button>
+      <button class="btn-plan cyber" onclick="cotizar('Premium', 850)">Elegir plan 🔥</button>
     </div>
-    
   </div>
+  
   <div class="pricing-help">
-  <p>¿Necesitas más orientación? Contacta con un asesor de Bryxel Technology</p>
-
- <a href="https://wa.me/51903014017?text=Hola%20Bryxel%0A%0AQuiero%20cotizar%20una%20p%C3%A1gina%20web%20profesional.%0A%0A%C2%BFPodr%C3%ADan%20orientarme%20un%20poco%20m%C3%A1s%20por%20favor%3F"
-   target="_blank"
-   class="btn-asesor">
-   💬 Hablar con un asesor
-</a>
-</div>
+    <p>¿Necesitas más orientación? Contacta con un asesor de Bryxel Technology</p>
+    <a href="https://wa.me/51903014017?text=Hola%20Bryxel%0A%0AQuiero%20cotizar%20una%20p%C3%A1gina%20web%20profesional.%0A%0A%C2%BFPodr%C3%ADan%20orientarme%20un%20poco%20m%C3%A1s%20por%20favor%3F"
+       target="_blank"
+       class="btn-asesor">
+       💬 Hablar con un asesor
+    </a>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════
@@ -487,8 +504,8 @@ rel="noopener"
 style="background-color:#25D366; color:white; padding:10px 20px; border-radius:50px; text-decoration:none; font-weight:bold;">
 Cotizar ahora
 </a>      <a href="mailto:bryxeltechnology@gmail.com">bryxeltechnology@gmail.com</a>
-      <a href="https://www.instagram.com/bryxeltechnology/">Instagram</a>
-      <a href="https://www.facebook.com/share/1CDNCLR9cC/">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
     </div>
   </div>
   <div class="footer-bottom">
