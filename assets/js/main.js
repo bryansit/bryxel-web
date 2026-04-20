@@ -110,3 +110,34 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+// CYBER WOW COUNTDOWN - hasta viernes 25/04/2026 23:59
+const endDate = new Date('2026-04-25T23:59:59').getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = endDate - now;
+
+  if (distance < 0) {
+    // Precios normalizados
+    document.querySelectorAll('.price-amount').forEach((el, i) => {
+      const normals = ['300', '600', '1000'];
+      el.innerHTML = `<sup>S/</sup>${normals[i]}`;
+    });
+    document.getElementById('countdown').innerHTML = 
+      '<p>🎉 Oferta finalizada. Precios normales aplicados.</p>';
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = days.toString().padStart(2, '0');
+  document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+  document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+  document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
