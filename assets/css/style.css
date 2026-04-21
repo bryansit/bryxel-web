@@ -603,81 +603,237 @@ body {
 .icon-gradient { width: 28px; height: 28px; }
 
 /* ════════════════════════════════════════
-   PORTAFOLIO
+   PORTAFOLIO — Cards rediseñadas
+   Reemplaza la sección "PORTAFOLIO" en style.css
 ════════════════════════════════════════ */
+
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 1.3rem;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
   margin: 0 auto;
 }
+
+/* ── CARD BASE ── */
 .port-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.2s, border-color 0.2s;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease, border-color 0.3s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
-.port-card:hover { transform: translateY(-6px); border-color: var(--blue2); }
+
+/* Brillo animado en hover */
+.port-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.port-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(147, 51, 234, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(147,51,234,0.25),
+    0 20px 60px rgba(0,0,0,0.5),
+    0 0 40px rgba(0,212,255,0.08);
+}
+.port-card:hover::before { opacity: 1; }
+
+/* ── IMAGEN ── */
 .port-img {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 180px;
   overflow: hidden;
-  border-radius: 15px;
+  flex-shrink: 0;
 }
+
 .port-img img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  position: absolute; inset: 0;
-  transition: transform 0.3s;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease, filter 0.4s ease;
+  filter: brightness(0.85) saturate(1.1);
 }
-.port-card:hover .port-img img { transform: scale(1.05); }
-.port-img img.img-full { transition: transform 0.5s ease, filter 0.5s ease; }
-.port-card:hover .port-img img.img-full { transform: scale(1.1); filter: brightness(1.1); }
-.port-emoji { font-size: 3rem; position: relative; z-index: 1; }
-.port-img-1 { background: linear-gradient(135deg, rgba(79,142,247,0.3), rgba(108,99,255,0.25)); }
-.port-img-2 { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(108,99,255,0.25)); }
-.port-img-3 { background: linear-gradient(135deg, rgba(217,70,239,0.25), rgba(79,142,247,0.25)); }
-.port-info { padding: 1rem 1.2rem; }
+
+.port-card:hover .port-img img {
+  transform: scale(1.08);
+  filter: brightness(1) saturate(1.2);
+}
+
+/* Overlay degradado sobre la imagen */
+.port-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(11, 17, 32, 0.85) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+/* Fondos de fallback por card */
+.port-img-1 { background: linear-gradient(135deg, rgba(79,142,247,0.35), rgba(108,99,255,0.3)); }
+.port-img-2 { background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(108,99,255,0.3)); }
+.port-img-3 { background: linear-gradient(135deg, rgba(217,70,239,0.3), rgba(79,142,247,0.3)); }
+
+/* Badge "Ver proyecto" que aparece en hover sobre la imagen */
+.port-img-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  background: rgba(11,17,32,0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.port-card:hover .port-img-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── INFO ── */
+.port-info {
+  padding: 1.2rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Línea decorativa superior */
+.port-info::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 1.4rem; right: 1.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.2), transparent);
+}
+
 .port-info h4 {
   font-family: 'Outfit', sans-serif;
-  font-weight: 700; color: #fff; font-size: 0.97rem; margin-bottom: 0.3rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.2;
 }
-.port-tag {
-  font-size: 0.78rem; color: var(--muted);
-  background: rgba(79,142,247,0.1);
-  padding: 2px 10px; border-radius: 20px;
-  display: inline-block;
-}
-.port-desc {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.65);
-  margin: 6px 0 10px;
-  line-height: 1.4;
-}
-.port-link-external {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #00d4ff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-.port-link-external:hover { color: #fff; text-shadow: 0 0 10px rgba(0,212,255,0.5); }
 
-.btn-ver-mas {
-  display: inline-flex; align-items: center; gap: 6px;
-  color: var(--cyan); text-decoration: none;
-  font-weight: 600; font-size: 0.9rem;
-  border: 1px solid rgba(0,212,255,0.3);
-  padding: 0.6rem 1.4rem; border-radius: 30px;
-  transition: background 0.2s;
+/* Tipo/categoría del proyecto */
+.port-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  opacity: 0.8;
 }
-.btn-ver-mas:hover { background: rgba(0,212,255,0.08); }
+
+.port-desc {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+  margin-top: 2px;
+  flex: 1;
+}
+
+/* ── FOOTER DE LA CARD ── */
+.port-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.port-link-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  padding: 0.38rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0,212,255,0.25);
+  background: rgba(0,212,255,0.05);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+.port-link-external:hover {
+  background: rgba(0,212,255,0.12);
+  border-color: rgba(0,212,255,0.5);
+  color: #fff;
+  transform: translateX(2px);
+}
+.port-link-external svg {
+  width: 12px; height: 12px;
+  transition: transform 0.2s;
+}
+.port-link-external:hover svg { transform: translateX(2px); }
+
+/* Punto de estado "live" */
+.port-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  font-weight: 500;
+}
+.port-live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: pulse-live 2s infinite;
+}
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .port-img { height: 180px; }
+}
 
 /* ════════════════════════════════════════
    PRECIOS
@@ -1004,4 +1160,81 @@ body {
   font-weight: 600;
   text-decoration: line-through;
   opacity: 0.9;
+}
+/* ── FILTROS ── */
+.port-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.port-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 1.1rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  letter-spacing: 0.02em;
+}
+.port-filter-btn svg { flex-shrink: 0; opacity: 0.7; }
+.port-filter-btn:hover {
+  border-color: rgba(0,212,255,0.35);
+  color: #fff;
+  background: rgba(0,212,255,0.07);
+}
+.port-filter-btn.active {
+  background: linear-gradient(135deg, rgba(147,51,234,0.3), rgba(0,212,255,0.2));
+  border-color: rgba(0,212,255,0.5);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(0,212,255,0.15);
+}
+
+/* ── CHIP DE CATEGORÍA SOBRE LA IMAGEN ── */
+.port-cat-chip {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+/* Colores por categoría */
+.port-cat-web      { background: rgba(59,130,246,0.3);  border: 1px solid rgba(59,130,246,0.5);  color: #93c5fd; }
+.port-cat-landing  { background: rgba(0,212,255,0.2);   border: 1px solid rgba(0,212,255,0.45);   color: #67e8f9; }
+.port-cat-software { background: rgba(147,51,234,0.25); border: 1px solid rgba(147,51,234,0.5);  color: #c4b5fd; }
+.port-cat-invitacion { background: rgba(236,72,153,0.2); border: 1px solid rgba(236,72,153,0.45); color: #f9a8d4; }
+
+/* ── ANIMACIÓN AL FILTRAR ── */
+.port-card {
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
+              box-shadow 0.35s ease,
+              border-color 0.3s,
+              opacity 0.3s ease;
+}
+.port-card.hidden {
+  display: none;
+}
+/* Añade esto en assets/css/style.css */
+.port-card {
+  max-width: 280px; /* Esto hará que las tarjetas sean más estrechas */
+  margin: 0 auto;   /* Las mantiene centradas en su columna */
 }
