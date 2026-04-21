@@ -264,67 +264,194 @@ rel="noopener">  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentCo
 <!-- ══════════════════════════════════════
      PORTAFOLIO
 ══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     PORTAFOLIO — HTML actualizado
+     Reemplaza toda la sección id="portafolio" en tu index.html
+══════════════════════════════════════ -->
 <section class="section section-dark" id="portafolio">
   <p class="sec-tag">Portafolio reciente</p>
   <h2 class="sec-title">Proyectos que hablan por sí solos</h2>
   <p class="sec-desc">Trabajos reales para clientes reales. Resultados medibles desde el primer día.</p>
 
-  <div class="portfolio-grid">
-    <div class="port-card">
-      <div class="port-img port-img-1">
-  <img src="./assets/img/dealprowev (2).jpg" alt="Web restaurante"
-       class="img-full"
-       onerror="this.style.display='none'"/>
-</div>
-      <div class="port-info">
-        <h4>Agencia Dealpro</h4>
-        <!-- 👇 TEXTO PEQUEÑO -->
-      <p class="port-desc">
-        Agencia de diseño gráfico especializada en branding, identidad visual y contenido digital.
-      </p>
-
-         <a href="https://www.agenciadealpro.com/" target="_blank" class="port-link-external">
-      → Ver sitio
-    </a>
-      </div>
-    </div>
-    <div class="port-card">
-      <div class="port-img port-img-2">
-        <img src="assets/img/hym.jpg" alt="Tienda online"
-             onerror="this.style.display='none'"/>
-        
-      </div>
-      <div class="port-info">
-        <h4>H&M app escaneo</h4>
-       <p class="port-desc">
-Aplicación de escaneo de productos que permite identificar artículos de H&M y acceder a información rápida desde el móvil.      </p>
-
-         <a href="https://hm-ai-scanner-bryansits-projects.vercel.app/" target="_blank" class="port-link-external">
-      → Ver sitio
-    </a>
-      </div>
-    </div>
-    <div class="port-card">
-      <div class="port-img port-img-3">
-        <img src="assets/img/aymtex.jpg" alt="Landing servicios"
-             onerror="this.style.display='none'"/>
-        
-      </div>
-      <div class="port-info">
-        <h4>Aymtex</h4>
-        <p class="port-desc">
-  Plataforma web de textilería que muestra información detallada sobre materiales como poliéster y otros tipos de tela, facilitando la consulta y visualización de productos.
-</p>
-         <a href="https://aymtex.pe/" target="_blank" class="port-link-external">
-      <!--→ Ver sitio-->
-    </a>
-      </div>
-    </div>
+  <!-- ── FILTROS ── -->
+  <div class="port-filters">
+    <button class="port-filter-btn active" data-filter="all">Todos</button>
+    <button class="port-filter-btn" data-filter="web">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+      Sitio web
+    </button>
+    <button class="port-filter-btn" data-filter="landing">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      Landing page
+    </button>
+    <button class="port-filter-btn" data-filter="software">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 000-6l2.1-1.2-2-3.5-2.4 1a1.65 1.65 0 00-5.2 0l-2.4-1-2 3.5L4.6 9a1.65 1.65 0 000 6l-2.1 1.2 2 3.5 2.4-1a1.65 1.65 0 005.2 0l2.4 1 2-3.5z"/></svg>
+      Software a medida
+    </button>
+    
   </div>
 
-  
-</section>
+  <!-- ── GRID ── -->
+  <div class="portfolio-grid" id="portfolio-grid">
 
+    <!-- CARD: Agencia Dealpro — Sitio web -->
+    <div class="port-card" data-category="web">
+      <div class="port-img port-img-1">
+        <img src="./assets/img/dealprowev (2).jpg" alt="Agencia Dealpro" class="img-full"
+             onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-web">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+          Sitio web
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">Sitio corporativo</div>
+        <h4>Agencia Dealpro</h4>
+        <p class="port-desc">Agencia de diseño gráfico especializada en branding, identidad visual y contenido digital.</p>
+        <div class="port-footer">
+          <a href="https://www.agenciadealpro.com/" target="_blank" rel="noopener" class="port-link-external">
+            Ver sitio
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live"><div class="port-live-dot"></div>En vivo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Sofía & Mateo — Invitación digital -->
+    <div class="port-card" data-category="landing">
+      <div class="port-img port-img-2">
+        <img src="./assets/img/boda.jpg" alt="Invitación de boda Sofía y Mateo" class="img-full"
+             onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-invitacion">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          Landingpage
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">Landingpage</div>
+        <h4>Sofía &amp; Mateo Boda</h4>
+        <p class="port-desc">Invitación de boda digital con cuenta regresiva, dress code, mapa de ubicación y libro de felicitaciones para los invitados.</p>
+        <div class="port-footer">
+          <a href="https://boda-demo-two.vercel.app/" target="_blank" rel="noopener" class="port-link-external">
+            Ver sitio
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live"><div class="port-live-dot"></div>En vivo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: H&M App — Software a medida -->
+    <div class="port-card" data-category="software">
+      <div class="port-img port-img-3">
+        <img src="assets/img/hym.jpg" alt="H&M app escaneo" onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-software">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 000-6l2.1-1.2-2-3.5-2.4 1a1.65 1.65 0 00-5.2 0l-2.4-1-2 3.5L4.6 9a1.65 1.65 0 000 6l-2.1 1.2 2 3.5 2.4-1a1.65 1.65 0 005.2 0l2.4 1 2-3.5z"/></svg>
+          Software a medida
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">App web / IA</div>
+        <h4>H&amp;M App Escaneo</h4>
+        <p class="port-desc">Aplicación de escaneo de productos que permite identificar artículos de H&amp;M y acceder a información rápida desde el móvil.</p>
+        <div class="port-footer">
+          <a href="https://hm-ai-scanner-bryansits-projects.vercel.app/" target="_blank" rel="noopener" class="port-link-external">
+            Ver sitio
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live"><div class="port-live-dot"></div>En vivo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: Aymtex — Sitio web -->
+    <div class="port-card" data-category="web">
+      <div class="port-img port-img-1">
+        <img src="assets/img/aymtex.jpg" alt="Aymtex" onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-web">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+          Sitio web
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">Plataforma web</div>
+        <h4>Aymtex</h4>
+        <p class="port-desc">Plataforma web de textilería que muestra información detallada sobre materiales como poliéster y otros tipos de tela.</p>
+        <div class="port-footer">
+          <a href="https://aymtex.pe/" target="_blank" rel="noopener" class="port-link-external">
+            Ver sitio
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live"><div class="port-live-dot"></div>En vivo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD DEMO: Landing page (agrega tus datos reales aquí) 
+    <div class="port-card" data-category="landing">
+      <div class="port-img port-img-2">
+        <img src="assets/img/landing-demo.jpg" alt="Landing page demo" onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-landing">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          Landing page
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">Landing page</div>
+        <h4>Tu proyecto aquí</h4>
+        <p class="port-desc">Página de aterrizaje optimizada para convertir visitas en clientes, con formulario de contacto y botón de WhatsApp.</p>
+        <div class="port-footer">
+          <a href="#contacto" class="port-link-external">
+            Cotizar igual
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live" style="color:rgba(255,255,255,0.2)">
+            <div class="port-live-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></div>Próximo
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- CARD DEMO: Software a medida (agrega tus datos reales aquí) 
+    <div class="port-card" data-category="software">
+      <div class="port-img port-img-3">
+        <img src="assets/img/software-demo.jpg" alt="Software a medida demo" onerror="this.style.display='none'"/>
+        <div class="port-img-badge">↗ Ver proyecto</div>
+        <div class="port-cat-chip port-cat-software">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 000-6l2.1-1.2-2-3.5-2.4 1a1.65 1.65 0 00-5.2 0l-2.4-1-2 3.5L4.6 9a1.65 1.65 0 000 6l-2.1 1.2 2 3.5 2.4-1a1.65 1.65 0 005.2 0l2.4 1 2-3.5z"/></svg>
+          Software a medida
+        </div>
+      </div>
+      <div class="port-info">
+        <div class="port-type">Sistema web</div>
+        <h4>Tu proyecto aquí</h4>
+        <p class="port-desc">Sistema o aplicación web desarrollada a medida según las necesidades específicas de tu negocio o flujo de trabajo.</p>
+        <div class="port-footer">
+          <a href="#contacto" class="port-link-external">
+            Cotizar igual
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+          <div class="port-live" style="color:rgba(255,255,255,0.2)">
+            <div class="port-live-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></div>Próximo
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>--><!-- /portfolio-grid -->
+
+  <!-- Mensaje cuando no hay resultados -->
+  <div id="port-empty" style="display:none;text-align:center;padding:3rem;color:var(--muted);font-size:0.95rem;">
+    No hay proyectos en esta categoría aún. <a href="#contacto" style="color:var(--cyan);text-decoration:none;font-weight:600;">¡Sé el primero! →</a>
+  </div>
+
+</section>
 <!-- ══════════════════════════════════════
      PRECIOS
 ══════════════════════════════════════ -->
@@ -347,7 +474,7 @@ Aplicación de escaneo de productos que permite identificar artículos de H&M y 
       <div class="price-name">Básico</div>
       <div class="price-stacked">
         <span class="price-old">~<sup>S/</sup>300~</span>
-        <div class="price-amount cyber"><sup>S/</sup>250</div>
+        <div class="price-amount cyber"><sup>S/</sup>200</div>
       </div>
       <div class="price-period">pago único</div>
       <ul class="price-features">
@@ -380,7 +507,7 @@ Aplicación de escaneo de productos que permite identificar artículos de H&M y 
       <div class="price-name">Premium</div>
       <div class="price-stacked">
         <span class="price-old">~<sup>S/</sup>1000~</span>
-        <div class="price-amount cyber"><sup>S/</sup>850</div>
+        <div class="price-amount cyber"><sup>S/</sup>800</div>
       </div>
       <div class="price-period">pago único</div>
       <ul class="price-features">
@@ -520,13 +647,43 @@ Cotizar ahora
 <script src="assets/js/whatsapp.js"></script>
 
 <script>
+  
 /* Cotizar desde planes de precios → abre WhatsApp con mensaje */
 function cotizar(plan, precio) {
   const msg = encodeURIComponent(
     `Hola Bryxel Technology 👋\n\nEstoy interesado en el plan *${plan}* (S/ ${precio}).\n¿Me pueden dar más información?`
   );
   window.open(`https://wa.me/51903014017?text=${msg}`, '_blank');
+  
 }
+(function() {
+  const btns  = document.querySelectorAll('.port-filter-btn');
+  const cards = document.querySelectorAll('#portfolio-grid .port-card');
+  const empty = document.getElementById('port-empty');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Botón activo
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        if (match) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      empty.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+})();
 </script>
 
 </body>
